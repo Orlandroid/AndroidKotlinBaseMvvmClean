@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidBase</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="tittle_message">Tittle message</string>
+    <string name="cancelar_dialog">Cancelar</string>
+    <string name="body_message">Body message</string>
+    <string name="error_service">Servicio no disponible, intente más tarde.</string>
+    <string name="verifica_conexion">Verifica tu conexion de internet</string>
+</resources>
