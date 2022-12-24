@@ -1,7 +1,6 @@
 package com.example.androidbase.data.preferences
 
 import android.content.SharedPreferences
-import com.example.citassalon.data.preferences.PreferencesManager
 import javax.inject.Inject
 
 class LoginPeferences @Inject constructor(sharedPreferences: SharedPreferences) :

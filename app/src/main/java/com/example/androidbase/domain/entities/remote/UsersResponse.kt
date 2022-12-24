@@ -3,10 +3,10 @@ package com.example.androidbase.domain.entities.remote
 data class UsersResponse(
     val status: Int,
     val message: String,
-    val data: List<Data>,
+    val data: List<User>,
 )
 
-data class Data(
+data class User(
     val role: String,
     val _id: String,
     val name: String,

@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.androidbase.presentation.ui.HomeFragment"
+        android:name="com.example.androidbase.presentation.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_blankFragment"
-            app:destination="@id/blankFragment" />
+            android:id="@+id/action_homeFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
     </fragment>
     <fragment
-        android:id="@+id/blankFragment"
-        android:name="com.example.androidbase.presentation.ui.BlankFragment"
+        android:id="@+id/usersFragment"
+        android:name="com.example.androidbase.presentation.ui.users.UsersFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_users" />
 </navigation>

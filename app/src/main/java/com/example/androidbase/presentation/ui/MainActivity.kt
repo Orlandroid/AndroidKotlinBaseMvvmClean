@@ -6,7 +6,10 @@ import androidx.core.view.isVisible
 import com.example.androidbase.databinding.ActivityMainBinding
 import com.example.androidbase.presentation.extensions.gone
 import com.example.androidbase.presentation.extensions.visible
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

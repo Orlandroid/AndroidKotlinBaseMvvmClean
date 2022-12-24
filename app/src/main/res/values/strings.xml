@@ -8,4 +8,10 @@
     <string name="body_message">Body message</string>
     <string name="error_service">Servicio no disponible, intente más tarde.</string>
     <string name="verifica_conexion">Verifica tu conexion de internet</string>
+    <string name="users">Users</string>
+    <string name="nombre">Nombre:</string>
+    <string name="correo">Correo:</string>
+    <string name="n_mero">Número:</string>
+    <string name="id">Id:</string>
+    <string name="empty">***************</string>
 </resources>

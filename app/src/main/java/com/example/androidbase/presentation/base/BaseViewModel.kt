@@ -15,7 +15,7 @@ import com.example.androidbase.domain.state.Result
 
 abstract class BaseViewModel constructor(
     protected val coroutineDispatchers: CoroutineDispatchers,
-    protected val networkHelper: NetworkHelper
+    val networkHelper: NetworkHelper
 ) : ViewModel() {
 
     enum class ErrorType {
@@ -34,11 +34,15 @@ abstract class BaseViewModel constructor(
                 withContext(coroutineDispatchers.main) {
                     result.value = Result.Loading
                 }
+                if (!networkHelper.isNetworkConnected()){
+                    result.value = Result.ErrorNetwork("")
+                    return@launch
+                }
                 apiToCall()
             } catch (e: Exception) {
                 withContext(coroutineDispatchers.main) {
                     e.printStackTrace()
-                    Log.e("ApiCalls", "Call error: ${e.localizedMessage}", e.cause)
+                    Log.e("ApiCalls", "Call error: ${e.localizedMessage} code:$e", e.cause)
                     when (e) {
                         is HttpException -> {
                             val errorBody = e.response()?.errorBody()
@@ -48,6 +52,7 @@ abstract class BaseViewModel constructor(
                                 errorCode = errorCode ?: -1,
                                 errorBody = errorBody.toString()
                             )
+                            Log.w("Call error :","code:$errorCode")
                         }
                         is SocketTimeoutException -> result.value =
                             Result.Error(ErrorType.TIMEOUT.name)

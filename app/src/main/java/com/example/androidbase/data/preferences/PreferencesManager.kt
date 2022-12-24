@@ -1,4 +1,4 @@
-package com.example.citassalon.data.preferences
+package com.example.androidbase.data.preferences
 
 import android.content.SharedPreferences
 import javax.inject.Inject
