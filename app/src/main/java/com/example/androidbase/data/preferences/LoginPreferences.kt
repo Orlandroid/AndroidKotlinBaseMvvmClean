@@ -3,7 +3,7 @@ package com.example.androidbase.data.preferences
 import android.content.SharedPreferences
 import javax.inject.Inject
 
-class LoginPeferences @Inject constructor(sharedPreferences: SharedPreferences) :
+class LoginPreferences @Inject constructor(sharedPreferences: SharedPreferences) :
     PreferencesManager(sharedPreferences) {
 
     companion object {
