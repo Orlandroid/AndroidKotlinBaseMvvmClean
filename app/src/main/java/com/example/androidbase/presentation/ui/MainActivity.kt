@@ -31,4 +31,8 @@ class MainActivity : AppCompatActivity() {
             binding.progressBar.gone()
         }
     }
+
+    fun shouldShowProgress(isLoading: Boolean) {
+        binding.progressBar.isVisible = isLoading
+    }
 }

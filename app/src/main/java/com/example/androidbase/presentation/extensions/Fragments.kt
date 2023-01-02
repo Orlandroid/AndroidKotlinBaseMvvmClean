@@ -19,6 +19,10 @@ fun Fragment.hideProgress() {
     (requireActivity() as MainActivity).hideProgress()
 }
 
+fun Fragment.shouldShowProgress(isLoading: Boolean) {
+    (requireActivity() as MainActivity).shouldShowProgress(isLoading)
+}
+
 
 fun Fragment.hideKeyboard() {
     view?.let { activity?.hideKeyboard(it) }
@@ -58,7 +62,6 @@ fun Fragment.showErrorNetwork(shouldCloseTheViewOnApiError: Boolean = false) {
 }
 
 
-// TODO checkar extension observeLiveDataOnce para agregarla a esta extension
 fun <T> Fragment.observeApiResult(
     liveData: LiveData<Result<T>>,
     onLoading: () -> Unit = { },
@@ -70,18 +73,19 @@ fun <T> Fragment.observeApiResult(
     onSuccess: (data: T) -> Unit,
 ) {
     liveData.observe(viewLifecycleOwner) { apiState ->
-        if (apiState is Result.Loading) {
-            if (haveTheViewProgress) {
-                showProgress()
-            } else {
+        fun handleStatusOnLoading(isLoading: Boolean) {
+            if (isLoading) {
                 onLoading()
-            }
-        } else {
-            if (haveTheViewProgress) {
-                hideProgress()
             } else {
                 onFinishLoading()
             }
+        }
+
+        val isLoading = apiState is Result.Loading
+        if (haveTheViewProgress) {
+            shouldShowProgress(isLoading)
+        } else {
+            handleStatusOnLoading(isLoading)
         }
         when (apiState) {
             is Result.Success -> {

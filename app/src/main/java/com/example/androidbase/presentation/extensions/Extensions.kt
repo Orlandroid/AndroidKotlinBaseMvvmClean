@@ -2,12 +2,9 @@ package com.example.androidbase.presentation.extensions
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.util.Base64
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
@@ -16,8 +13,6 @@ import androidx.annotation.ColorRes
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import java.io.ByteArrayOutputStream
-import java.io.IOException
 
 
 fun Activity.hideKeyboard() {
@@ -36,8 +31,7 @@ fun Context.showToast(message: String) {
 
 fun ImageView.setColorFilterImage(context: Context, @ColorRes colorInt: Int) {
     this.setColorFilter(
-        ContextCompat.getColor(context, colorInt),
-        PorterDuff.Mode.SRC_OVER
+        ContextCompat.getColor(context, colorInt), PorterDuff.Mode.SRC_OVER
     )
 }
 
@@ -46,35 +40,6 @@ fun Drawable.tint(context: Context, @ColorRes color: Int) {
     DrawableCompat.setTint(this, context.resources.getColor(color, context.theme))
 }
 
-
-fun Bitmap.toBase64(): String {
-    var result = ""
-    val baos = ByteArrayOutputStream()
-    try {
-        compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        baos.flush()
-        baos.close()
-        val bitmapBytes = baos.toByteArray()
-        result = Base64.encodeToString(bitmapBytes, Base64.DEFAULT)
-    } catch (e: IOException) {
-        e.printStackTrace()
-    } finally {
-        try {
-            baos.flush()
-            baos.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
-    return result
-}
-
-fun String.base64StringToBitmap(): Bitmap {
-    val baos = ByteArrayOutputStream()
-    var imageBytes: ByteArray = baos.toByteArray()
-    imageBytes = Base64.decode(this, Base64.DEFAULT)
-    return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-}
 
 
 
