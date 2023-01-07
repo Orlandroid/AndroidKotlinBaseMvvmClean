@@ -3,7 +3,7 @@ package com.example.androidbase.presentation.ui.users
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidbase.domain.entities.remote.User
+import com.example.domain.entities.remote.User
 import com.example.androidbase.databinding.ItemUserBinding
 
 
@@ -29,7 +29,7 @@ class UserAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ItemUserBinding.inflate(layoutInflater,parent,false)
+        val binding = ItemUserBinding.inflate(layoutInflater, parent, false)
         return ViewHolder(binding)
     }
 

@@ -4,16 +4,16 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.androidbase.data.Repository
-import com.example.androidbase.data.di.CoroutineDispatchers
-import com.example.androidbase.domain.entities.remote.UsersResponse
+import com.example.data.Repository
 import com.example.androidbase.presentation.base.BaseViewModel
 import com.example.androidbase.presentation.helpers.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.example.androidbase.domain.state.Result
+import com.example.domain.state.Result
+import com.example.data.di.CoroutineDispatchers
+import com.example.domain.entities.remote.UsersResponse
 import javax.inject.Inject
 
 @HiltViewModel

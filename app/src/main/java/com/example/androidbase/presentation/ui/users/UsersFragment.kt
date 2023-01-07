@@ -3,7 +3,7 @@ package com.example.androidbase.presentation.ui.users
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.androidbase.R
-import com.example.androidbase.domain.entities.remote.User
+import com.example.domain.entities.remote.User
 import com.example.androidbase.databinding.FragmentUsersBinding
 import com.example.androidbase.presentation.base.BaseFragment
 import com.example.androidbase.presentation.extensions.click

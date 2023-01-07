@@ -4,14 +4,14 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidbase.data.di.CoroutineDispatchers
 import com.example.androidbase.presentation.helpers.NetworkHelper
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okio.IOException
 import retrofit2.HttpException
 import java.net.SocketTimeoutException
-import com.example.androidbase.domain.state.Result
+import com.example.data.di.CoroutineDispatchers
+import com.example.domain.state.Result
 
 abstract class BaseViewModel constructor(
     protected val coroutineDispatchers: CoroutineDispatchers,
@@ -34,7 +34,7 @@ abstract class BaseViewModel constructor(
                 withContext(coroutineDispatchers.main) {
                     result.value = Result.Loading
                 }
-                if (!networkHelper.isNetworkConnected()){
+                if (!networkHelper.isNetworkConnected()) {
                     result.value = Result.ErrorNetwork("")
                     return@launch
                 }
@@ -52,7 +52,7 @@ abstract class BaseViewModel constructor(
                                 errorCode = errorCode ?: -1,
                                 errorBody = errorBody.toString()
                             )
-                            Log.w("Call error :","code:$errorCode")
+                            Log.w("Call error :", "code:$errorCode")
                         }
                         is SocketTimeoutException -> result.value =
                             Result.Error(ErrorType.TIMEOUT.name)
