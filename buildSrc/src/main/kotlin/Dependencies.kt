@@ -67,4 +67,6 @@ object Dependencies {
     const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.VIEW_MODEL_VERSION}"
     const val LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIVE_DATA_VERSION}"
     const val FRAGMENT_KTS = "androidx.fragment:fragment-ktx:1.5.5"
+    const val TEST_JUNIT = "androidx.test.ext:junit:1.1.4"
+    const val TEST_EXPRESO = "androidx.test.espresso:espresso-core:3.5.0"
 }
