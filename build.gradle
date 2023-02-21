@@ -25,15 +25,13 @@ task clean(type: Delete) {
 }
 
 ext {
-    //device imformation
     applicationId = "com.example.androidbase"
     versionCode = 1
     versionName = "1.0"
     compileSdkVersion = 28
     minSdkVersion = 21
     targetSdkVersion = 28
-
-    room_version = "2.4.3"
+    room_version = "2.5.0"
     retrofit_version = "2.9.0"
     navigation_version = "2.5.3"
     lifecycle_version = "2.5.1"
