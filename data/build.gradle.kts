@@ -1,5 +1,6 @@
 import com.example.androidbase.presentation.Dependencies
 import com.example.androidbase.presentation.BuildModules
+import com.example.androidbase.presentation.ConfigData
 
 plugins {
     id("com.android.library")
@@ -9,11 +10,11 @@ plugins {
 
 android {
     namespace = "com.example.data"
-    compileSdk = 32
+    compileSdk = ConfigData.COMPILE_SDK_VERSION
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = ConfigData.MIN_SDK_VERSION
+        targetSdk = ConfigData.TARGET_SDK_VERSION
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

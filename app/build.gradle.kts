@@ -1,4 +1,5 @@
 import com.example.androidbase.presentation.BuildModules
+import com.example.androidbase.presentation.ConfigData
 import com.example.androidbase.presentation.Dependencies
 
 plugins {
@@ -12,14 +13,14 @@ plugins {
 
 android {
     namespace = "com.example.androidbase"
-    compileSdk = 33
+    compileSdk = ConfigData.COMPILE_SDK_VERSION
 
     defaultConfig {
-        applicationId = "com.example.androidbase"
-        minSdk = 22
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ConfigData.APPLICATION_ID
+        minSdk = ConfigData.MIN_SDK_VERSION
+        targetSdk = ConfigData.TARGET_SDK_VERSION
+        versionCode = ConfigData.VERSION_CODE
+        versionName = ConfigData.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
