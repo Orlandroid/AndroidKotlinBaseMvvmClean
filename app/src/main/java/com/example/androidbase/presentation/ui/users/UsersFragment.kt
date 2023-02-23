@@ -1,13 +1,12 @@
 package com.example.androidbase.presentation.ui.users
 
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.example.androidbase.R
-import com.example.domain.entities.remote.User
 import com.example.androidbase.databinding.FragmentUsersBinding
 import com.example.androidbase.presentation.base.BaseFragment
-import com.example.androidbase.presentation.extensions.click
 import com.example.androidbase.presentation.extensions.observeApiResult
+import com.example.androidbase.presentation.extensions.setonBackListener
+import com.example.domain.entities.remote.User
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -20,9 +19,11 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
         UserAdapter()
     }
 
+    override fun enableToolbar() = true
+
     override fun setUpUi() = with(binding) {
-        toolbarLayout.toolbarBack.click {
-            findNavController().popBackStack()
+        setonBackListener {
+
         }
         viewModel.getUsers()
         recycler.adapter = userAdapter

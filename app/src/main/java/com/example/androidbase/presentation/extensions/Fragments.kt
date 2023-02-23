@@ -23,6 +23,16 @@ fun Fragment.shouldShowProgress(isLoading: Boolean) {
     (requireActivity() as MainActivity).shouldShowProgress(isLoading)
 }
 
+fun Fragment.setonBackListener(click: () -> Unit) {
+    (requireActivity() as MainActivity).setOnBackClick {
+        click.invoke()
+    }
+}
+
+fun Fragment.changeToolbarTitle(title: String) {
+    (requireActivity() as MainActivity).changeTitleToolbar(title)
+}
+
 
 fun Fragment.hideKeyboard() {
     view?.let { activity?.hideKeyboard(it) }
@@ -35,29 +45,24 @@ fun Fragment.navigate(accion: NavDirections) {
 
 
 fun Fragment.showErrorApi(shouldCloseTheViewOnApiError: Boolean = false) {
-    val dialog =
-        MainAlert(
-            kindOfMessage = ERROR_MESSAGE,
-            messageBody = getString(R.string.error_service),
-            clickOnAccept = {
-                if (shouldCloseTheViewOnApiError) {
-                    findNavController().popBackStack()
-                }
+    val dialog = MainAlert(kindOfMessage = ERROR_MESSAGE,
+        messageBody = getString(R.string.error_service),
+        clickOnAccept = {
+            if (shouldCloseTheViewOnApiError) {
+                findNavController().popBackStack()
             }
-        )
+        })
     activity?.let { dialog.show(it.supportFragmentManager, "alertMessage") }
 }
 
 fun Fragment.showErrorNetwork(shouldCloseTheViewOnApiError: Boolean = false) {
-    val dialog = MainAlert(
-        kindOfMessage = ERROR_MESSAGE,
+    val dialog = MainAlert(kindOfMessage = ERROR_MESSAGE,
         messageBody = getString(R.string.verifica_conexion),
         clickOnAccept = {
             if (shouldCloseTheViewOnApiError) {
                 findNavController().popBackStack()
             }
-        }
-    )
+        })
     activity?.let { dialog.show(it.supportFragmentManager, "alertMessage") }
 }
 
