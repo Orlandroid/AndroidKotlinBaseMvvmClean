@@ -1,6 +1,5 @@
 package com.example.domain
 
-
 import com.example.domain.entities.remote.UsersResponse
 
 
