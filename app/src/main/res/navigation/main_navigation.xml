@@ -9,5 +9,14 @@
         android:id="@+id/usersFragment"
         android:name="com.example.androidbase.presentation.ui.users.UsersFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_users" />
+        tools:layout="@layout/fragment_users">
+        <action
+            android:id="@+id/action_usersFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.example.androidbase.presentation.ui.userDetail.UserDetailFragment"
+        android:label="UserDetailFragment"
+        tools:layout="@layout/fragment_user_detail" />
 </navigation>

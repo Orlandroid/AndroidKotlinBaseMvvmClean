@@ -1,9 +1,10 @@
 package com.example.androidbase.presentation.ui
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.databinding.DataBindingUtil
+import com.example.androidbase.R
 import com.example.androidbase.databinding.ActivityMainBinding
+import com.example.androidbase.presentation.base.BaseActivity
 import com.example.androidbase.presentation.extensions.click
 import com.example.androidbase.presentation.extensions.gone
 import com.example.androidbase.presentation.extensions.visible
@@ -11,27 +12,26 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private lateinit var binding: ActivityMainBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun setUpUi(layoutId: Int) {
+        binding = DataBindingUtil.setContentView(this, layoutId)
     }
+
 
     fun changeTitleToolbar(title: String) {
         binding.toolbarLayout.toolbarTitle.text = title
     }
 
-    fun setOnBackClick(clickOnBack: () -> Unit) {
+    override fun setOnBackClick(clickOnBack: () -> Unit) {
         binding.toolbarLayout.toolbarBack.click {
             clickOnBack()
         }
     }
 
-    fun showToolbar(shouldShow: Boolean) {
+    override fun showToolbar(shouldShow: Boolean) {
         if (shouldShow) {
             binding.toolbarLayout.root.visible()
         } else {
@@ -39,13 +39,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showProgress() {
+    override fun showProgress() {
         if (!binding.progressBar.isVisible) {
             binding.progressBar.visible()
         }
     }
 
-    fun hideProgress() {
+    override fun hideProgress() {
         if (binding.progressBar.isVisible) {
             binding.progressBar.gone()
         }

@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entities.remote.User
 import com.example.androidbase.databinding.ItemUserBinding
+import com.example.androidbase.presentation.extensions.click
 
 
-class UserAdapter :
+class UserAdapter(private val clickOnUser: (User) -> Unit) :
     RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     private var listOfCategories: List<User> = arrayListOf()
@@ -19,7 +20,10 @@ class UserAdapter :
 
 
     class ViewHolder(private val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: User) = with(binding) {
+        fun bind(user: User, clickOnUser: (User) -> Unit) = with(binding) {
+            root.click {
+                clickOnUser(user)
+            }
             tvNombre.text = user.name
             tvCorreo.text = user.email
             tvNumero.text = user.number.toString()
@@ -34,7 +38,7 @@ class UserAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listOfCategories[position])
+        holder.bind(listOfCategories[position], clickOnUser)
     }
 
     override fun getItemCount(): Int {

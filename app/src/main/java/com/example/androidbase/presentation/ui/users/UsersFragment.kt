@@ -15,11 +15,8 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
 
 
     private val viewModel: UsersViewModel by viewModels()
-    private val userAdapter by lazy {
-        UserAdapter()
-    }
+    private val userAdapter = UserAdapter { clickOnUser(it) }
 
-    override fun enableToolbar() = true
 
     override fun setUpUi() = with(binding) {
         setonBackListener {
@@ -38,6 +35,10 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
             }
             userAdapter.setData(users)
         }
+    }
+
+    private fun clickOnUser(user: User) {
+        navController.navigate(UsersFragmentDirections.actionUsersFragmentToUserDetailFragment())
     }
 
 }
