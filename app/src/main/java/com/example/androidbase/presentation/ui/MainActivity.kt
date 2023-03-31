@@ -1,7 +1,6 @@
 package com.example.androidbase.presentation.ui
 
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import com.example.androidbase.R
 import com.example.androidbase.databinding.ActivityMainBinding
 import com.example.androidbase.presentation.base.BaseActivity
@@ -12,16 +11,15 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity(R.layout.activity_main) {
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-    private lateinit var binding: ActivityMainBinding
 
-    override fun setUpUi(layoutId: Int) {
-        binding = DataBindingUtil.setContentView(this, layoutId)
+    override fun setUpUi() {
+
     }
 
 
-    fun changeTitleToolbar(title: String) {
+    override fun changeTitleToolbar(title: String) {
         binding.toolbarLayout.toolbarTitle.text = title
     }
 

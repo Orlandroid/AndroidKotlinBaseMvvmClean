@@ -1,19 +1,19 @@
 package com.example.androidbase.presentation.base
 
-import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 
 
-abstract class BaseActivity(@LayoutRes val layoutId: Int) :
+abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes val layoutId: Int) :
     AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setUpUi(layoutId)
-    }
 
-    abstract fun setUpUi(@LayoutRes layoutId: Int)
+    protected val binding: B by lazy { DataBindingUtil.setContentView<B>(this, layoutId) }
+
+
+    abstract fun setUpUi()
 
     open fun showToolbar(shouldShow: Boolean) {}
 
@@ -21,5 +21,9 @@ abstract class BaseActivity(@LayoutRes val layoutId: Int) :
 
     open fun hideProgress() {}
 
+    open fun changeTitleToolbar(title: String) {}
+
     open fun setOnBackClick(clickOnBack: () -> Unit) {}
+
+
 }
