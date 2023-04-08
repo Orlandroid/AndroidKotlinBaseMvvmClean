@@ -23,7 +23,6 @@ class UsersViewModel @Inject constructor(
     networkHelper: NetworkHelper
 ) : BaseViewModel(coroutineDispatchers, networkHelper) {
 
-    private val errorNetwork = "Error verifica tu conexion"
 
     private val _userResponse = MutableLiveData<Result<UsersResponse>>()
     val userResponse: LiveData<Result<UsersResponse>>
@@ -35,7 +34,6 @@ class UsersViewModel @Inject constructor(
                 val response = repository.getUser()
                 withContext(Dispatchers.Main) {
                     _userResponse.value = Result.Success(response)
-                    Log.w("ANDROID",response.data.toString())
                 }
             }
         }

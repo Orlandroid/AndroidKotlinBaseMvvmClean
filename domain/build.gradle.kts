@@ -35,8 +35,8 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    
+    implementation(Dependencies.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.ANDROID_MATERIAL)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

@@ -3,7 +3,7 @@ package com.example.androidbase.presentation
 object Versions {
     const val ANDROID_MATERIAL_VERSION = "1.3.0"
     const val ANDROIDX_ACTIVITY = "1.2.1"
-    const val ANDROIDX_APPCOMPAT_VERSION = "1.3.0-alpha02"
+    const val ANDROIDX_APPCOMPAT_VERSION = "1.5.1"
     const val ANDROIDX_CONSTRAINT_LAYOUT_VERSION = "2.0.4"
     const val ANDROIDX_CORE_KTX_VERSION = "1.3.2"
     const val ANDROIDX_FRAGMENT = "1.3.1"
@@ -37,6 +37,7 @@ object Dependencies {
     const val ANDROIDX_FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.ANDROIDX_FRAGMENT}"
     const val ANDROIDX_LIFECYCLE = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.ANDROIDX_LIFECYCLE_VERSION}"
     const val ANDROIDX_LIFECYCLE_EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:${Versions.ANDROIDX_LIFECYCLE_VERSION}"
+    const val ANDROIDX_CORE_CORE_KTX = "androidx.core:core-ktx:1.7.0"
     const val CARDVIEW = "androidx.cardview:cardview${Versions.CARDVIEW_VERSION}"
     const val DRAWER_LAYOUT = "androidx.drawerlayout:drawerlayout:${Versions.DRAWER_VERSION}"
     const val DAGGER_HILT = "com.google.dagger:hilt-android:${Versions.DAGGER_VERSION_ANDROID}"
@@ -69,4 +70,5 @@ object Dependencies {
     const val FRAGMENT_KTS = "androidx.fragment:fragment-ktx:1.5.5"
     const val TEST_JUNIT = "androidx.test.ext:junit:1.1.4"
     const val TEST_EXPRESO = "androidx.test.espresso:espresso-core:3.5.0"
+
 }
