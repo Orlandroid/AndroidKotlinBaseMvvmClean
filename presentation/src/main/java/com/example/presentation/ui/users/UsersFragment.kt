@@ -38,7 +38,7 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
     }
 
     private fun clickOnUser(user: User) {
-        //navController.navigate(UsersFragmentDirections.actionUsersFragmentToUserDetailFragment())
+        navController.navigate(UsersFragmentDirections.actionUsersFragmentToUserDetailFragment())
     }
 
 }
