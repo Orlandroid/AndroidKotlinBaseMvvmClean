@@ -5,7 +5,6 @@ import com.example.presentation.R
 import com.example.presentation.databinding.FragmentUsersBinding
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.extensions.observeApiResult
-import com.example.presentation.extensions.setonBackListener
 import com.example.domain.entities.remote.User
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,9 +18,6 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
 
 
     override fun setUpUi() = with(binding) {
-        setonBackListener {
-
-        }
         viewModel.getUsers()
         recycler.adapter = userAdapter
     }

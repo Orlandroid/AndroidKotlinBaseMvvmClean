@@ -23,11 +23,6 @@ fun Fragment.shouldShowProgress(isLoading: Boolean) {
     (requireActivity() as MainActivity).shouldShowProgress(isLoading)
 }
 
-fun Fragment.setonBackListener(click: () -> Unit) {
-    (requireActivity() as MainActivity).setOnBackClick {
-        click.invoke()
-    }
-}
 
 fun Fragment.changeToolbarTitle(title: String) {
     (requireActivity() as MainActivity).changeTitleToolbar(title)

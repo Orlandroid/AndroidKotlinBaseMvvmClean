@@ -22,8 +22,8 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding>(@LayoutRes protected 
     protected val binding: ViewBinding
         get() = _binding!!
 
-     val navController by lazy { findNavController() }
-     val baseActivity by lazy { requireActivity() as MainActivity }
+    val navController by lazy { findNavController() }
+    val baseActivity by lazy { requireActivity() as MainActivity }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,11 +39,13 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding>(@LayoutRes protected 
     open fun observerViewModel() {
     }
 
+    open fun configureToolbar() = MainActivity.ToolbarConfiguration()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpUi()
         observerViewModel()
+        (requireActivity() as MainActivity).setToolbarConfiguration(configureToolbar())
     }
 
     override fun onDestroyView() {
