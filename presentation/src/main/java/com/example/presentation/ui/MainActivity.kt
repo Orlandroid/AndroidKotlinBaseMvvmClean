@@ -1,7 +1,11 @@
 package com.example.presentation.ui
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -18,12 +22,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var navController: NavController? = null
+    private var searchViewConfig = SearchViewConfig()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpNavController()
+        setSupportActionBar(binding.toolbarLayout.toolbar)//for use searchView in our custom toolbar
     }
 
     private fun setUpNavController() {
@@ -36,13 +42,7 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarLayout.toolbarTitle.text = title
     }
 
-    fun setOnBackClick(clickOnBack: () -> Unit) {
-        binding.toolbarLayout.toolbarBack.click {
-            clickOnBack()
-        }
-    }
-
-    fun showToolbar(shouldShow: Boolean) {
+    private fun showToolbar(shouldShow: Boolean) {
         if (shouldShow) {
             binding.toolbarLayout.root.visible()
         } else {
@@ -65,6 +65,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun showSearchView(config: SearchViewConfig) {
+        searchViewConfig = config
+    }
 
     fun setToolbarConfiguration(configuration: ToolbarConfiguration) {
         setOnBackButton(configuration.clickOnBack)
@@ -93,9 +96,62 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.search_menu, menu)
+        val searchItem = menu.findItem(R.id.search)
+
+        searchItem.isVisible = searchViewConfig.showSearchView
+        searchItem.setOnMenuItemClickListener {
+            searchViewConfig.clickOnSearchIcon()
+            true
+        }
+
+        searchItem.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(menuItem: MenuItem): Boolean {
+                searchViewConfig.onMenuItemActionExpand.invoke()
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(menuItem: MenuItem): Boolean {
+                searchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS or MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW)
+                searchViewConfig.onMenuItemActionCollapse.invoke()
+                return true
+            }
+        })
+        val searchView: SearchView = searchItem.actionView as SearchView
+        searchView.queryHint = searchViewConfig.hintText
+        searchView.gravity = View.TEXT_ALIGNMENT_CENTER
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                searchViewConfig.onQueryTextSubmit.invoke(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                searchViewConfig.onQueryTextChange.invoke(newText)
+                return false
+            }
+        })
+        return true
+    }
+
+    data class SearchViewConfig(
+        val hintText: String = "Buscar",
+        val showSearchView: Boolean = false,
+        val onMenuItemActionExpand: () -> Unit = {},
+        val onMenuItemActionCollapse: () -> Unit = {},
+        val onQueryTextSubmit: (query: String) -> Unit = {},
+        val onQueryTextChange: (newText: String) -> Unit = {},
+        val clickOnSearchIcon: () -> Unit = {}
+    )
+
+
     data class ToolbarConfiguration(
         val showToolbar: Boolean = false,
         val clickOnBack: (() -> Unit)? = null,
         val toolbarTitle: String = ""
     )
+
+
 }

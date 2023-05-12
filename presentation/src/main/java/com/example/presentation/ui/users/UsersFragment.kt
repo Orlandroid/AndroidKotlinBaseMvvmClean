@@ -6,6 +6,7 @@ import com.example.presentation.databinding.FragmentUsersBinding
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.extensions.observeApiResult
 import com.example.domain.entities.remote.User
+import com.example.presentation.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -16,6 +17,14 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
     private val viewModel: UsersViewModel by viewModels()
     private val userAdapter = UserAdapter { clickOnUser(it) }
 
+
+    override fun configureToolbar() = MainActivity.ToolbarConfiguration(
+        showToolbar = true
+    )
+
+    override fun configSearchView() = MainActivity.SearchViewConfig(
+        showSearchView = true
+    )
 
     override fun setUpUi() = with(binding) {
         viewModel.getUsers()
