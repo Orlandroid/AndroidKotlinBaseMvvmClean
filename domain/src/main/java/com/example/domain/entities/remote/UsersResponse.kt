@@ -1,15 +1,10 @@
 package com.example.domain.entities.remote
 
-data class UsersResponse(
-    val status: Int,
-    val message: String,
-    val data: List<User>,
-)
 
 data class User(
     val role: String,
     val _id: String,
-    val name: String,
+    val name: Name,
     val email: String,
     val number: Long,
     val password: String,
@@ -17,3 +12,10 @@ data class User(
     val updatedAt: String,
     val lastLoginAt: String,
 )
+
+data class Name(
+    val firstname: String,
+    val lastname: String
+) {
+    fun fullName() = "$firstname $lastname"
+}

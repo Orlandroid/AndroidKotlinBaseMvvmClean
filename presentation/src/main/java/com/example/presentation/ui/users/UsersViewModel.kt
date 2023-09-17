@@ -1,19 +1,18 @@
 package com.example.presentation.ui.users
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.data.Repository
+import com.example.data.di.CoroutineDispatchers
+import com.example.domain.entities.remote.User
+import com.example.domain.state.Result
 import com.example.presentation.base.BaseViewModel
 import com.example.presentation.helpers.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.example.domain.state.Result
-import com.example.data.di.CoroutineDispatchers
-import com.example.domain.entities.remote.UsersResponse
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,8 +23,8 @@ class UsersViewModel @Inject constructor(
 ) : BaseViewModel(coroutineDispatchers, networkHelper) {
 
 
-    private val _userResponse = MutableLiveData<Result<UsersResponse>>()
-    val userResponse: LiveData<Result<UsersResponse>>
+    private val _userResponse = MutableLiveData<Result<List<User>>>()
+    val userResponse: LiveData<Result<List<User>>>
         get() = _userResponse
 
     fun getUsers() {

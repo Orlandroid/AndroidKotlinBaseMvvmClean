@@ -1,9 +1,9 @@
 package com.example.domain
 
-import com.example.domain.entities.remote.UsersResponse
+import com.example.domain.entities.remote.User
 
 
 interface RemoteDataSource {
 
-    suspend fun getUser(): UsersResponse
+    suspend fun getUser(): List<User>
 }

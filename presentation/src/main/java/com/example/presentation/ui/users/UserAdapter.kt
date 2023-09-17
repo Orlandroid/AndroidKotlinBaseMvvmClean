@@ -24,7 +24,7 @@ class UserAdapter(private val clickOnUser: (User) -> Unit) :
             root.click {
                 clickOnUser(user)
             }
-            tvNombre.text = user.name
+            tvNombre.text = user.name.fullName()
             tvCorreo.text = user.email
             tvNumero.text = user.number.toString()
             tvId.text = user._id

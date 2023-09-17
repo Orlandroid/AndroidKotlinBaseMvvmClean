@@ -40,7 +40,7 @@ android {
 
 dependencies {
     implementation(project(BuildModules.DOMAIN))
-    implementation(Dependencies.ANDROIDX_CORE_CORE_KTX)
+    implementation(Dependencies.ANDROIDX_CORE_KTX)
     implementation(Dependencies.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.ANDROID_MATERIAL)
     testImplementation("junit:junit:4.13.2")

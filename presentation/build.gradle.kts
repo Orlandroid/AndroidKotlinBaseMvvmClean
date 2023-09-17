@@ -49,7 +49,7 @@ android {
 dependencies {
     implementation(project(BuildModules.DATA))
     implementation(project(BuildModules.DOMAIN))
-    implementation(Dependencies.ANDROIDX_CORE_CORE_KTX)
+    implementation(Dependencies.ANDROIDX_CORE_KTX)
     implementation(Dependencies.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.ANDROID_MATERIAL)
     implementation(Dependencies.ANDROIDX_CONSTRAINT_LAYOUT)
@@ -71,7 +71,7 @@ dependencies {
     //lifecycle
     implementation(Dependencies.VIEW_MODEL)
     implementation(Dependencies.LIVE_DATA)
-    implementation(Dependencies.FRAGMENT_KTS)
+    implementation(Dependencies.ANDROIDX_FRAGMENT)
     //Room
     implementation(Dependencies.ROOM)
     implementation(Dependencies.ROOM_KOTLIN_EXTENSION)

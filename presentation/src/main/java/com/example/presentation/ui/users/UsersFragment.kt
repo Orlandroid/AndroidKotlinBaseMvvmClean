@@ -35,7 +35,7 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
         super.observerViewModel()
         observeApiResult(viewModel.userResponse) {
             val users = arrayListOf<User>()
-            it.data.forEach { user ->
+            it.forEach { user ->
                 users.add(user)
             }
             userAdapter.setData(users)
