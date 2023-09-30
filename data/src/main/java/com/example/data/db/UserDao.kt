@@ -18,7 +18,7 @@ interface UserDao {
     fun getAllUser(): Flow<List<User>>
 
     @Query("SELECT * FROM User")
-    fun getAllUsers(): List<User>
+    suspend fun getAllUsers(): List<User>
 
     @Query("SELECT * FROM user WHERE id =:id")
     fun getUserById(id: Int): Flow<User>

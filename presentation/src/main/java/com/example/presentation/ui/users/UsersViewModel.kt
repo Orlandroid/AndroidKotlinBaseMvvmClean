@@ -27,6 +27,10 @@ class UsersViewModel @Inject constructor(
     val userResponse: LiveData<Result<List<User>>>
         get() = _userResponse
 
+    init {
+        getUsers()
+    }
+
     fun getUsers() {
         viewModelScope.launch {
             safeApiCall(_userResponse, coroutineDispatchers) {

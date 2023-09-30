@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         setOnBackButton(configuration.clickOnBack)
         changeTitleToolbar(configuration.toolbarTitle)
         showToolbar(configuration.showToolbar)
+        showBackArrow(configuration.showBackArrow)
     }
 
 
@@ -93,6 +94,14 @@ class MainActivity : AppCompatActivity() {
             showProgress()
         } else {
             hideProgress()
+        }
+    }
+
+    private fun showBackArrow(shouldShow: Boolean) {
+        if (shouldShow) {
+            binding.toolbarLayout.toolbarBack.visible()
+        } else {
+            binding.toolbarLayout.toolbarBack.gone()
         }
     }
 
@@ -149,6 +158,7 @@ class MainActivity : AppCompatActivity() {
 
     data class ToolbarConfiguration(
         val showToolbar: Boolean = false,
+        val showBackArrow: Boolean = true,
         val clickOnBack: (() -> Unit)? = null,
         val toolbarTitle: String = ""
     )

@@ -19,7 +19,8 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
 
 
     override fun configureToolbar() = MainActivity.ToolbarConfiguration(
-        showToolbar = true
+        showToolbar = true,
+        showBackArrow = false
     )
 
     override fun configSearchView() = MainActivity.SearchViewConfig(
@@ -27,7 +28,6 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
     )
 
     override fun setUpUi() = with(binding) {
-        viewModel.getUsers()
         recycler.adapter = userAdapter
     }
 
