@@ -29,16 +29,17 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(R.layout.fragment_users
 
     override fun setUpUi() = with(binding) {
         recycler.adapter = userAdapter
+        swipe.setOnRefreshListener {
+            userAdapter.setData(emptyList())
+            swipe.isRefreshing = false
+            viewModel.getUsers()
+        }
     }
 
     override fun observerViewModel() {
         super.observerViewModel()
         observeApiResult(viewModel.userResponse) {
-            val users = arrayListOf<User>()
-            it.forEach { user ->
-                users.add(user)
-            }
-            userAdapter.setData(users)
+            userAdapter.setData(it)
         }
     }
 

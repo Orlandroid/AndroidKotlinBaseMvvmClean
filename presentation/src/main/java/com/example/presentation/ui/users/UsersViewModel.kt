@@ -24,8 +24,7 @@ class UsersViewModel @Inject constructor(
 
 
     private val _userResponse = MutableLiveData<Result<List<User>>>()
-    val userResponse: LiveData<Result<List<User>>>
-        get() = _userResponse
+    val userResponse = _userResponse
 
     init {
         getUsers()
