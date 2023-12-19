@@ -43,7 +43,7 @@ dependencies {
     implementation(Dependencies.ANDROIDX_CORE_KTX)
     implementation(Dependencies.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.ANDROID_MATERIAL)
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(Dependencies.JUNIT_JUNIT)
     androidTestImplementation(Dependencies.TEST_JUNIT)
     androidTestImplementation(Dependencies.TEST_EXPRESO)
     //Retrofit Dependecies
@@ -57,7 +57,7 @@ dependencies {
     kapt(Dependencies.ROOM_COMPILER)
     //Dagger - Hilt
     implementation(Dependencies.DAGGER_HILT)
+    kapt(Dependencies.DAGGER_HILT_ANDROID_COMPILER)
     kapt(Dependencies.DAGGER_HILT_COMPILER)
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
 
 }

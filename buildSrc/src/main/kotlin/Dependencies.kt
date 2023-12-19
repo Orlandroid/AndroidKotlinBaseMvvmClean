@@ -14,7 +14,8 @@ object Dependencies {
     const val CARDVIEW = "androidx.cardview:cardview:1.0.0"
     const val DRAWER_LAYOUT = "androidx.drawerlayout:drawerlayout:1.2.0"
     const val DAGGER_HILT = "com.google.dagger:hilt-android:2.46.1"
-    const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-android-compiler:2.46.1"
+    const val DAGGER_HILT_COMPILER = "androidx.hilt:hilt-compiler:1.1.0"
+    const val DAGGER_HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:2.46.1"
     const val GLIDE = "com.github.bumptech.glide:glide:4.16.0"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:4.16.0"
     const val KOTLIN_STDLIB_JDK7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.31"
@@ -36,6 +37,7 @@ object Dependencies {
     const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
     const val LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:2.6.2"
     const val TEST_JUNIT = "androidx.test.ext:junit:1.1.4"
+    const val JUNIT_JUNIT = "junit:junit:4.13.2"
     const val TEST_EXPRESO = "androidx.test.espresso:espresso-core:3.5.0"
     const val SWIPE_REFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }

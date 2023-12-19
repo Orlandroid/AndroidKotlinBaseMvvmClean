@@ -53,7 +53,7 @@ dependencies {
     implementation(Dependencies.ANDROIDX_APPCOMPAT)
     implementation(Dependencies.ANDROID_MATERIAL)
     implementation(Dependencies.ANDROIDX_CONSTRAINT_LAYOUT)
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(Dependencies.JUNIT_JUNIT)
     androidTestImplementation(Dependencies.TEST_JUNIT)
     androidTestImplementation(Dependencies.TEST_EXPRESO)
     //Navigation component
@@ -61,8 +61,8 @@ dependencies {
     implementation(Dependencies.NAVIGATION_UI)
     //Dagger - Hilt
     implementation(Dependencies.DAGGER_HILT)
+    kapt(Dependencies.DAGGER_HILT_ANDROID_COMPILER)
     kapt(Dependencies.DAGGER_HILT_COMPILER)
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
     //Retrofit Dependecies
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.RETROFIT_CONVERTER_GSON)
