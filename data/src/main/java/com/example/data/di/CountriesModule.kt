@@ -18,7 +18,7 @@ import javax.inject.Singleton
 object CountriesModule {
 
 
-    private const val BASE_URL = "http://www.boredapi.com/api/"
+    private const val BASE_URL = "https://restcountries.com/v3.1/"
     private const val COUNTRIES = "Countries"
 
 

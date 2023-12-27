@@ -22,7 +22,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
 
             HomeAdapter.Menus.Countries -> {
-
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCountriesFragment())
             }
 
             HomeAdapter.Menus.Dogs -> {

@@ -17,4 +17,5 @@
     <string name="t_tulo">Título</string>
     <string name="detalle">DETALLE</string>
     <string name="the_bored_api">The Bored API</string>
+    <string name="countries">REST Countries</string>
 </resources>
