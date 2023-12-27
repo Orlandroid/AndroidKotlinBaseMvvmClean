@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.presentation.R
 import com.example.presentation.alerts.MainAlert
 import com.example.presentation.alerts.MainAlert.Companion.ERROR_MESSAGE
-import com.example.presentation.ui.MainActivity
+import com.example.presentation.features.MainActivity
 
 fun Fragment.showLog(message: String, tag: String = javaClass.name) {
     Log.w(tag, message)

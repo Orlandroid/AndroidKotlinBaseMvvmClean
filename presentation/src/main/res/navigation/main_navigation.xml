@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/usersFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/usersFragment"
-        android:name="com.example.presentation.ui.users.UsersFragment"
-        android:label="UsersFragment"
-        tools:layout="@layout/fragment_users">
+        android:id="@+id/homeFragment"
+        android:name="com.example.presentation.features.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_usersFragment_to_userDetailFragment"
-            app:destination="@id/userDetailFragment" />
+            android:id="@+id/action_homeFragment_to_boredFragment"
+            app:destination="@id/boredFragment" />
     </fragment>
     <fragment
-        android:id="@+id/userDetailFragment"
-        android:name="com.example.presentation.ui.userDetail.UserDetailFragment"
-        android:label="UserDetailFragment"
-        tools:layout="@layout/fragment_user_detail" />
+        android:id="@+id/boredFragment"
+        android:name="com.example.presentation.features.bored.BoredFragment"
+        android:label="BoredFragment"
+        tools:layout="@layout/fragment_bored" />
 </navigation>

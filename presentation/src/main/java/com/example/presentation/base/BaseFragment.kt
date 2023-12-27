@@ -11,7 +11,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.presentation.extensions.hideProgress
-import com.example.presentation.ui.MainActivity
+import com.example.presentation.features.MainActivity
 
 abstract class BaseFragment<ViewBinding : ViewDataBinding>(@LayoutRes protected val contentLayoutId: Int) :
     Fragment() {

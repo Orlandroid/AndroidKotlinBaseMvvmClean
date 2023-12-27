@@ -3,7 +3,7 @@ package com.example.androidbase.presentation
 
 object Dependencies {
     const val NAVIGATION_VERSION = "2.7.5"
-    const val ANDROID_MATERIAL = "com.google.android.material:material:1.9.0"
+    const val ANDROID_MATERIAL = "com.google.android.material:material:1.11.0"
     const val ANDROIDX_ACTIVITY = "androidx.activity:activity-ktx:1.8.2"
     const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:1.6.1"
     const val ANDROIDX_CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:2.1.4"

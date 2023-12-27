@@ -1,10 +1,10 @@
-package com.example.presentation.ui.users
+package com.example.presentation.features.bored
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.data.Repository
 import com.example.data.di.CoroutineDispatchers
-import com.example.domain.entities.remote.User
+import com.example.domain.bored.ActivityResponse
+import com.example.domain.bored.BoredRepository
 import com.example.domain.state.Result
 import com.example.presentation.base.BaseViewModel
 import com.example.presentation.helpers.NetworkHelper
@@ -15,29 +15,28 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class UsersViewModel @Inject constructor(
-    private val repository: Repository,
+class BoredViewModel @Inject constructor(
+    private val repository: BoredRepository,
     coroutineDispatchers: CoroutineDispatchers,
     networkHelper: NetworkHelper
 ) : BaseViewModel(coroutineDispatchers, networkHelper) {
 
+    private val _getActivityResponse = MutableLiveData<Result<ActivityResponse>>()
+    val getActivityResponse = _getActivityResponse
 
-    private val _userResponse = MutableLiveData<Result<List<User>>>()
-    val userResponse = _userResponse
 
     init {
-        getUsers()
+        getActivity()
     }
 
-    fun getUsers() {
+    fun getActivity() {
         viewModelScope.launch {
-            safeApiCall(_userResponse, coroutineDispatchers) {
-                val response = repository.getUser()
+            safeApiCall(_getActivityResponse, coroutineDispatchers) {
+                val response = repository.getActivity()
                 withContext(Dispatchers.Main) {
-                    _userResponse.value = Result.Success(response)
+                    _getActivityResponse.value = Result.Success(response)
                 }
             }
         }
     }
-
 }

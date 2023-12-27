@@ -3,8 +3,11 @@ package com.example.presentation.extensions
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.os.Build
+import android.text.Html
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
@@ -49,6 +52,14 @@ fun View.takeScreenshot(): Bitmap {
     }
     this.draw(canvas)
     return bitmap
+}
+
+fun TextView.setTextFromHtml(textHtml: String) {
+    text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(textHtml, Html.FROM_HTML_MODE_COMPACT)
+    } else {
+        Html.fromHtml(textHtml)
+    }
 }
 
 
