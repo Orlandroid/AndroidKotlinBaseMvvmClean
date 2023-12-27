@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_countriesFragment"
             app:destination="@id/countriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_dogsFragment"
+            app:destination="@id/dogsFragment" />
     </fragment>
     <fragment
         android:id="@+id/boredFragment"
@@ -35,9 +38,14 @@
         android:id="@+id/countryDetailFragment"
         android:name="com.example.presentation.features.countries.CountryDetailFragment"
         android:label="CountryDetailFragment"
-        tools:layout="@layout/fragment_country_detail" >
+        tools:layout="@layout/fragment_country_detail">
         <argument
             android:name="countryName"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/dogsFragment"
+        android:name="com.example.presentation.features.dogs.DogsFragment"
+        android:label="DogsFragment"
+        tools:layout="@layout/fragment_dogs" />
 </navigation>

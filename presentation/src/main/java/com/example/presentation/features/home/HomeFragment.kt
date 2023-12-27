@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
 
             HomeAdapter.Menus.Dogs -> {
-
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDogsFragment())
             }
         }
     }

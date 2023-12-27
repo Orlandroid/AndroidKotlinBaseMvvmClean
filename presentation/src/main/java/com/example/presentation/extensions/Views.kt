@@ -11,6 +11,9 @@ import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.presentation.R
 
 
 fun View.visible() {
@@ -40,6 +43,12 @@ fun View.getColor(@ColorRes color: Int): Int {
 fun View.navigate(action: NavDirections) {
     findNavController().navigate(action)
 }
+
+fun ImageView.loadImage(urlImage: String) {
+    Glide.with(context).load(urlImage).placeholder(R.drawable.loading_img)
+        .transition(DrawableTransitionOptions.withCrossFade()).circleCrop().into(this)
+}
+
 
 fun View.takeScreenshot(): Bitmap {
     val bitmap = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888)

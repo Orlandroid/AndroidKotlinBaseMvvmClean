@@ -18,4 +18,5 @@
     <string name="detalle">DETALLE</string>
     <string name="the_bored_api">The Bored API</string>
     <string name="countries">REST Countries</string>
+    <string name="dogs_api">Dog API</string>
 </resources>

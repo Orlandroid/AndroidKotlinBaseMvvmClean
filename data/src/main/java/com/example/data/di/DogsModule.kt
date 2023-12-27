@@ -1,9 +1,9 @@
 package com.example.data.di
 
 
-import com.example.data.bored.BoredApi
-import com.example.data.bored.BoredRepositoryImpl
 import com.example.data.dog.DogsApi
+import com.example.data.dog.DogsRepositoryImpl
+import com.example.domain.dogs.DogsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 object DogsModule {
 
 
-    private const val BASE_URL = "http://www.boredapi.com/api/"
+    private const val BASE_URL = "https://dog.ceo/api/"
     private const val DOGS = "Dogs"
 
 
@@ -35,8 +35,8 @@ object DogsModule {
     @Provides
     @Singleton
     fun provideDogsRepository(
-        boredApi: BoredApi,
-    ): BoredRepositoryImpl = BoredRepositoryImpl(boredApi)
+        dogsApi: DogsApi,
+    ): DogsRepository = DogsRepositoryImpl(dogsApi)
 
 
 }
