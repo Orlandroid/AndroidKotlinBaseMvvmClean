@@ -44,9 +44,13 @@ fun View.navigate(action: NavDirections) {
     findNavController().navigate(action)
 }
 
-fun ImageView.loadImage(urlImage: String) {
-    Glide.with(context).load(urlImage).placeholder(R.drawable.loading_img)
-        .transition(DrawableTransitionOptions.withCrossFade()).circleCrop().into(this)
+fun ImageView.loadImage(urlImage: String, withCircleCrop: Boolean = true) {
+    if (withCircleCrop) {
+        Glide.with(context).load(urlImage).placeholder(R.drawable.loading_img)
+            .transition(DrawableTransitionOptions.withCrossFade()).circleCrop().into(this)
+    } else {
+        Glide.with(context).load(urlImage).placeholder(R.drawable.loading_img).into(this)
+    }
 }
 
 

@@ -48,9 +48,11 @@ data class CoatOfArms(
     val svg: String
 )
 
+/*
 data class Currencies(
     val AUD: AUD
 )
+*/
 
 data class Demonyms(
     val eng: Eng
@@ -64,10 +66,6 @@ data class Flags(
 data class Idd(
     val root: String,
     val suffixes: List<String>
-)
-
-data class Languages(
-    val eng: String
 )
 
 data class Maps(
@@ -114,10 +112,11 @@ data class Translations(
     val zho: Zho
 )
 
+/*
 data class AUD(
     val name: String,
     val symbol: String
-)
+)*/
 
 data class Eng(
     val f: String,

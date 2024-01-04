@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.countries.CountryResponse
 import com.example.presentation.databinding.ItemCountryBinding
 import com.example.presentation.extensions.click
+import com.example.presentation.extensions.loadImage
 
 class CountriesAdapter(private val clickOnCountry: (CountryResponse) -> Unit) :
     ListAdapter<CountryResponse, CountriesAdapter.WordViewHolder>(WordsComparator()) {
@@ -30,6 +31,7 @@ class CountriesAdapter(private val clickOnCountry: (CountryResponse) -> Unit) :
                 clickOnCountry(country)
             }
             title.text = country.name.common
+            imageFlag.loadImage(withCircleCrop = false, urlImage = country.flags.png)
         }
     }
 

@@ -1,6 +1,5 @@
 package com.example.presentation.features.bored
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.data.di.CoroutineDispatchers
 import com.example.domain.bored.ActivityResponse
@@ -10,6 +9,11 @@ import com.example.presentation.base.BaseViewModel
 import com.example.presentation.helpers.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -21,8 +25,12 @@ class BoredViewModel @Inject constructor(
     networkHelper: NetworkHelper
 ) : BaseViewModel(coroutineDispatchers, networkHelper) {
 
-    private val _getActivityResponse = MutableLiveData<Result<ActivityResponse>>()
-    val getActivityResponse = _getActivityResponse
+    private val _getActivityResponse = MutableStateFlow<Result<ActivityResponse>>(Result.Loading)
+    val getActivityResponse: StateFlow<Result<ActivityResponse>> = _getActivityResponse.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000),
+        initialValue = Result.Loading
+    )
 
 
     init {

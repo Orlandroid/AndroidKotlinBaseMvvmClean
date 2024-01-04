@@ -7,6 +7,7 @@ import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentCountryDetailBinding
 import com.example.presentation.extensions.observeApiResult
+import com.example.presentation.extensions.observeApiResultFlow
 import com.example.presentation.features.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,15 +30,19 @@ class CountryDetailFragment :
 
     override fun observerViewModel() {
         super.observerViewModel()
-        observeApiResult(viewModel.country, shouldCloseTheViewOnApiError = true) {
+        observeApiResultFlow(viewModel.country, shouldCloseTheViewOnApiError = true) {
             it[0].let { myCountryResponse ->
                 Glide.with(this).load(myCountryResponse.flags.png).into(binding.imageView)
-                binding.tvPais.text = myCountryResponse.name.official
-                binding.tvCapital.text = myCountryResponse.capital[0]
-                binding.tvMoneda.text = myCountryResponse.population.toString()
-                binding.tvCodigoTelefono.text = myCountryResponse.startOfWeek
-                binding.skeletonImage.showOriginal()
-                binding.skeletonCard.showOriginal()
+                with(binding) {
+                    tvPais.text = myCountryResponse.name.official
+                    tvCapital.text = myCountryResponse.capital[0]
+                    tvMoneda.text = myCountryResponse.population.toString()
+                    tvCodigoTelefono.text = myCountryResponse.startOfWeek
+                    skeletonImage.showOriginal()
+                    skeletonCard.showOriginal()
+                    tvMyCurrency.text = myCountryResponse.currencies.toNonEmptyCurrencyNamesList()[0]
+                    tvLanguaje.text = myCountryResponse.languages.toNonEmptyList()[0]
+                }
             }
         }
     }

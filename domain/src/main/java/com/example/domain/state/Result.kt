@@ -8,7 +8,7 @@ sealed class Result<out R> {
 
     class SocketTimeoutException<out T> : Result<T>()
     class ErrorNetwork<out T>(val error: String) : Result<T>()
-    object Loading : Result<Nothing>()
-    object EmptyList : Result<Nothing>()
+    data object Loading : Result<Nothing>()
+    data object EmptyList : Result<Nothing>()
 
 }

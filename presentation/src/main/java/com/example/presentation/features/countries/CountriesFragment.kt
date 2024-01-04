@@ -6,7 +6,7 @@ import com.example.domain.countries.CountryResponse
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentCountriesBinding
-import com.example.presentation.extensions.observeApiResult
+import com.example.presentation.extensions.observeApiResultFlow
 import com.example.presentation.features.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,7 +37,7 @@ class CountriesFragment : BaseFragment<FragmentCountriesBinding>(R.layout.fragme
 
     override fun observerViewModel() {
         super.observerViewModel()
-        observeApiResult(viewModel.countries) {
+        observeApiResultFlow(viewModel.countries) {
             adapter.submitList(it)
         }
     }
