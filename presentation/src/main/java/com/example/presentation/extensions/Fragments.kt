@@ -1,6 +1,5 @@
 package com.example.presentation.extensions
 
-import android.nfc.Tag
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections

@@ -1,14 +1,19 @@
 package com.example.presentation.features.countries
 
+import android.os.Bundle
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.domain.countries.CountryResponse
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentCountriesBinding
-import com.example.presentation.extensions.observeApiResultFlow
+import com.example.presentation.extensions.observeFlow
 import com.example.presentation.features.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -23,8 +28,13 @@ class CountriesFragment : BaseFragment<FragmentCountriesBinding>(R.layout.fragme
     private val adapter = CountriesAdapter { clickOnCountry(it) }
     private val viewModel: CountriesViewModel by viewModels()
     override fun setUpUi() {
-        viewModel.getCountries()
+        //viewModel.getCountries()
         binding.recycler.adapter = adapter
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getCountries()
     }
 
     private fun clickOnCountry(country: CountryResponse) {
@@ -37,7 +47,7 @@ class CountriesFragment : BaseFragment<FragmentCountriesBinding>(R.layout.fragme
 
     override fun observerViewModel() {
         super.observerViewModel()
-        observeApiResultFlow(viewModel.countries) {
+        observeFlow(stateFlow = viewModel.countries, progressBar = binding.progressBar) {
             adapter.submitList(it)
         }
     }

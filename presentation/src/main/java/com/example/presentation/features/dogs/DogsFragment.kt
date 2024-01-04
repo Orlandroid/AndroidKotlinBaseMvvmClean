@@ -6,7 +6,7 @@ import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentDogsBinding
 import com.example.presentation.extensions.click
 import com.example.presentation.extensions.loadImage
-import com.example.presentation.extensions.observeApiResultFlow
+import com.example.presentation.extensions.observeFlow
 import com.example.presentation.features.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +29,7 @@ class DogsFragment : BaseFragment<FragmentDogsBinding>(R.layout.fragment_dogs) {
 
     override fun observerViewModel() {
         super.observerViewModel()
-        observeApiResultFlow(viewModel.getRandomImage) {
+        observeFlow(stateFlow = viewModel.getRandomImage, progressBar = binding.progressBar) {
             binding.imageDog.loadImage(it.message)
         }
     }

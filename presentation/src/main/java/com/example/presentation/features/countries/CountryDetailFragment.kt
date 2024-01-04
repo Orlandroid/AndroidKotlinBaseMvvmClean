@@ -6,8 +6,7 @@ import com.bumptech.glide.Glide
 import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentCountryDetailBinding
-import com.example.presentation.extensions.observeApiResult
-import com.example.presentation.extensions.observeApiResultFlow
+import com.example.presentation.extensions.observeFlow
 import com.example.presentation.features.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,7 +29,11 @@ class CountryDetailFragment :
 
     override fun observerViewModel() {
         super.observerViewModel()
-        observeApiResultFlow(viewModel.country, shouldCloseTheViewOnApiError = true) {
+        observeFlow(
+            stateFlow = viewModel.country,
+            shouldCloseTheViewOnApiError = true,
+            progressBar = binding.progressBar
+        ) {
             it[0].let { myCountryResponse ->
                 Glide.with(this).load(myCountryResponse.flags.png).into(binding.imageView)
                 with(binding) {
@@ -40,7 +43,8 @@ class CountryDetailFragment :
                     tvCodigoTelefono.text = myCountryResponse.startOfWeek
                     skeletonImage.showOriginal()
                     skeletonCard.showOriginal()
-                    tvMyCurrency.text = myCountryResponse.currencies.toNonEmptyCurrencyNamesList()[0]
+                    tvMyCurrency.text =
+                        myCountryResponse.currencies.toNonEmptyCurrencyNamesList()[0]
                     tvLanguaje.text = myCountryResponse.languages.toNonEmptyList()[0]
                 }
             }

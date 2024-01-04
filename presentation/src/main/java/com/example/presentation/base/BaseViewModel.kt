@@ -27,8 +27,8 @@ abstract class BaseViewModel constructor(
         crossinline apiToCall: suspend () -> Unit,
     ) {
         viewModelScope.launch(coroutineDispatchers.io) {
+            result.emit(Result.Loading)
             try {
-                result.emit(Result.Loading)
                 if (!networkHelper.isNetworkConnected()) {
                     result.emit(Result.ErrorNetwork(""))
                     return@launch

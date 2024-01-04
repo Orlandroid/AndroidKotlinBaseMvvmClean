@@ -8,6 +8,7 @@
         android:layout_height="match_parent"
         tools:context=".presentation.ui.MainActivity">
 
+
         <include
             android:id="@+id/toolbar_layout"
             layout="@layout/toolbar_view"
@@ -40,5 +41,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

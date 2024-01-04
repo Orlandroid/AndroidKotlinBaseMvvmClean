@@ -6,14 +6,13 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.presentation.R
+import com.example.presentation.databinding.ActivityMainBinding
 import com.example.presentation.extensions.click
 import com.example.presentation.extensions.gone
 import com.example.presentation.extensions.visible
-import com.example.presentation.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -78,15 +77,11 @@ class MainActivity : AppCompatActivity() {
 
 
     fun showProgress() {
-        if (!binding.progressBar.isVisible) {
-            binding.progressBar.visible()
-        }
+        binding.progressBar.visible()
     }
 
     fun hideProgress() {
-        if (binding.progressBar.isVisible) {
-            binding.progressBar.gone()
-        }
+        binding.progressBar.gone()
     }
 
     fun shouldShowProgress(isLoading: Boolean) {

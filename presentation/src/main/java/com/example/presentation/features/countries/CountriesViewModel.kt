@@ -30,6 +30,7 @@ class CountriesViewModel @Inject constructor(
     private val _country = MutableStateFlow<Result<List<CountryResponse>>>(Result.Loading)
     val country = _country
 
+
     fun getCountries() = viewModelScope.launch {
         safeApiCall(_countries, coroutineDispatchers) {
             val response = repository.getAllCountries()
