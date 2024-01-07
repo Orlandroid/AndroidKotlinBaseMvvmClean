@@ -1,6 +1,11 @@
 import com.example.androidbase.presentation.BuildModules
 import com.example.androidbase.presentation.ConfigData
 import com.example.androidbase.presentation.Dependencies
+import com.example.androidbase.presentation.daggerHilt
+import com.example.androidbase.presentation.glide
+import com.example.androidbase.presentation.navigationComponent
+import com.example.androidbase.presentation.retrofit
+import com.example.androidbase.presentation.room
 
 plugins {
     id("com.android.application")
@@ -57,28 +62,19 @@ dependencies {
     androidTestImplementation(Dependencies.TEST_JUNIT)
     androidTestImplementation(Dependencies.TEST_EXPRESO)
     //Navigation component
-    implementation(Dependencies.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.NAVIGATION_UI)
+    navigationComponent()
     //Dagger - Hilt
-    implementation(Dependencies.DAGGER_HILT)
-    kapt(Dependencies.DAGGER_HILT_ANDROID_COMPILER)
-    kapt(Dependencies.DAGGER_HILT_COMPILER)
+    daggerHilt()
     //Retrofit Dependecies
-    implementation(Dependencies.RETROFIT)
-    implementation(Dependencies.RETROFIT_CONVERTER_GSON)
-    implementation(Dependencies.RETROFIT_CONVERTER_MOSHI)
-    implementation(Dependencies.RETROFIT_INTERCEPTOR)
+    retrofit()
     //lifecycle
     implementation(Dependencies.VIEW_MODEL)
     implementation(Dependencies.LIVE_DATA)
     implementation(Dependencies.ANDROIDX_FRAGMENT)
     //Room
-    implementation(Dependencies.ROOM)
-    implementation(Dependencies.ROOM_KOTLIN_EXTENSION)
-    kapt(Dependencies.ROOM_COMPILER)
+    room()
     //Glide
-    implementation(Dependencies.GLIDE)
-    annotationProcessor(Dependencies.GLIDE_COMPILER)
+    glide()
     implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
     //implementation("com.github.Spikeysanju:MotionToast:1.4")
     implementation("com.faltenreich:skeletonlayout:5.0.0")

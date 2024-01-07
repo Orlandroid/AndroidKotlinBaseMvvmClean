@@ -1,5 +1,6 @@
 import com.example.androidbase.presentation.ConfigData
 import com.example.androidbase.presentation.Dependencies
+import com.example.androidbase.presentation.room
 
 plugins {
     id("com.android.library")
@@ -41,7 +42,5 @@ dependencies {
     testImplementation(Dependencies.JUNIT_JUNIT)
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation(Dependencies.ROOM)
-    implementation(Dependencies.ROOM_KOTLIN_EXTENSION)
-    kapt(Dependencies.ROOM_COMPILER)
+    room()
 }

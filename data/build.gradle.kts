@@ -1,6 +1,9 @@
 import com.example.androidbase.presentation.Dependencies
 import com.example.androidbase.presentation.BuildModules
 import com.example.androidbase.presentation.ConfigData
+import com.example.androidbase.presentation.daggerHilt
+import com.example.androidbase.presentation.retrofit
+import com.example.androidbase.presentation.room
 
 plugins {
     id("com.android.library")
@@ -47,17 +50,10 @@ dependencies {
     androidTestImplementation(Dependencies.TEST_JUNIT)
     androidTestImplementation(Dependencies.TEST_EXPRESO)
     //Retrofit Dependecies
-    implementation(Dependencies.RETROFIT)
-    implementation(Dependencies.RETROFIT_CONVERTER_GSON)
-    implementation(Dependencies.RETROFIT_CONVERTER_MOSHI)
-    implementation(Dependencies.RETROFIT_INTERCEPTOR)
+    retrofit()
     //Room
-    implementation(Dependencies.ROOM)
-    implementation(Dependencies.ROOM_KOTLIN_EXTENSION)
-    kapt(Dependencies.ROOM_COMPILER)
+    room()
     //Dagger - Hilt
-    implementation(Dependencies.DAGGER_HILT)
-    kapt(Dependencies.DAGGER_HILT_ANDROID_COMPILER)
-    kapt(Dependencies.DAGGER_HILT_COMPILER)
+    daggerHilt()
 
 }

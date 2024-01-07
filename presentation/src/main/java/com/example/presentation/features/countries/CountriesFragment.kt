@@ -2,9 +2,6 @@ package com.example.presentation.features.countries
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.domain.countries.CountryResponse
 import com.example.presentation.R
@@ -13,7 +10,6 @@ import com.example.presentation.databinding.FragmentCountriesBinding
 import com.example.presentation.extensions.observeFlow
 import com.example.presentation.features.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
