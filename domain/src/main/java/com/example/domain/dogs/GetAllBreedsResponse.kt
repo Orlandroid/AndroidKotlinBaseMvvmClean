@@ -1,9 +1,13 @@
 package com.example.domain.dogs
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class GetAllBreedsResponse(
     val message: Message, val status: String
 )
 
+@Serializable
 data class Message(
     val affenpinscher: List<String>,
     val african: List<String>,

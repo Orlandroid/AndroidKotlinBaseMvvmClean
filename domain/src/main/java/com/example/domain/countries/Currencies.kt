@@ -1,6 +1,9 @@
 package com.example.domain.countries
 
+import kotlinx.serialization.Serializable
 
+
+@Serializable
 data class Currencies(
     val AED: AED = AED(),
     val AFN: AFN = AFN(),
@@ -337,486 +340,493 @@ data class Currencies(
 }
 
 
+@Serializable
 data class AED(val name: String = "", val symbol: String = "")
 
 
+@Serializable
 data class AFN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ALL(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class AMD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ANG(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class AOA(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ARS(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class AUD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class AWG(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class AZN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BAM(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BBD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BDT(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BGN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BHD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BIF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BMD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BND(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BOB(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BRL(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BSD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BTN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BWP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BYN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class BZD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CAD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CDF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CHF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CKD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CLP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CNY(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class COP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CRC(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CUC(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CUP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CVE(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class CZK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class DJF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class DKK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class DOP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class DZD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class EGP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ERN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ETB(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class EUR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class FJD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class FKP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class FOK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GBP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GEL(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GGP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GHS(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GIP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GMD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GNF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GTQ(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class GYD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class HKD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class HNL(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class HTG(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class HUF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class IDR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ILS(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class IMP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class INR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class IQD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class IRR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ISK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class JEP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class JMD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class JOD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class JPY(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KES(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KGS(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KHR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KID(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KMF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KPW(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KRW(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KWD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KYD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class KZT(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class LAK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class LBP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class LKR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class LRD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class LSL(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class LYD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MAD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MDL(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MGA(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MKD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MMK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MNT(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MOP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MRU(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MUR(val name: String = "", val symbol: String = "")
 
 
+@Serializable
 data class MVR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MWK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MXN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MYR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class MZN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class NAD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class NGN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class NIO(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class NOK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class NPR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class NZD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class OMR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class PAB(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class PEN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class PGK(val name: String = "", val symbol: String = "")
 
+@Serializable
 
 data class PHP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class PKR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class PLN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class PYG(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class QAR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class RON(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class RSD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class RUB(val name: String = "", val symbol: String = "")
 
+@Serializable
 
 data class RWF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SAR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SBD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SCR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SDG(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SEK(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SGD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SHP(val name: String = "", val symbol: String = "")
 
+@Serializable
 
 data class SLL(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SOS(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SRD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SSP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class STN(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SYP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class SZL(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class THB(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TJS(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TMT(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TND(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TOP(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TRY(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TTD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TVD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TWD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class TZS(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class UAH(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class UGX(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class USD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class UYU(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class UZS(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class VES(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class VND(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class VUV(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class WST(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class XAF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class XCD(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class XOF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class XPF(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class YER(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ZAR(val name: String = "", val symbol: String = "")
 
-
+@Serializable
 data class ZMW(val name: String = "", val symbol: String = "")
 
+@Serializable
 data class ZWL(val name: String = "", val symbol: String = "")

@@ -1,6 +1,9 @@
 package com.example.domain.countries
 
+import kotlinx.serialization.Serializable
 
+
+@Serializable
 data class Languages(
     val afr: String = "",
     val amh: String = "",

@@ -27,8 +27,7 @@ object Dependencies {
     const val MOSHI = "com.squareup.moshi:moshi-kotlin:1.11.0"
     const val MOSHI_ADAPTERS = "com.squareup.moshi:moshi-adapters:1.11.0"
     const val MOSHI_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:1.11.0"
-    const val NAVIGATION_FRAGMENT =
-        "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_VERSION"
+    const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_VERSION"
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:$NAVIGATION_VERSION"
     const val PAGING = "androidx.paging:paging-runtime:3.2.1"
     const val RECYCLERVIEW = "androidx.recyclerview:recyclerview:3.0.0-beta02"

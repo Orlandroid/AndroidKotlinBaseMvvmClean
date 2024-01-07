@@ -38,14 +38,20 @@ class CountryDetailFragment :
                 Glide.with(this).load(myCountryResponse.flags.png).into(binding.imageView)
                 with(binding) {
                     tvPais.text = myCountryResponse.name.official
-                    tvCapital.text = myCountryResponse.capital[0]
+                    if (myCountryResponse.capital.isNotEmpty()) {
+                        tvCapital.text = myCountryResponse.capital[0]
+                    }
                     tvMoneda.text = myCountryResponse.population.toString()
                     tvCodigoTelefono.text = myCountryResponse.startOfWeek
                     skeletonImage.showOriginal()
                     skeletonCard.showOriginal()
                     tvMyCurrency.text =
-                        myCountryResponse.currencies.toNonEmptyCurrencyNamesList()[0]
-                    tvLanguaje.text = myCountryResponse.languages.toNonEmptyList()[0]
+                        myCountryResponse.currencies?.let {
+                            it.toNonEmptyCurrencyNamesList()[0]
+                        }
+                    tvLanguaje.text = myCountryResponse.languages?.let {
+                        it.toNonEmptyList()[0]
+                    }
                 }
             }
         }

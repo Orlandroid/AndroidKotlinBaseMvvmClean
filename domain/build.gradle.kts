@@ -6,6 +6,7 @@ plugins {
     id("com.android.library")
     id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -43,4 +44,5 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     room()
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
 }
