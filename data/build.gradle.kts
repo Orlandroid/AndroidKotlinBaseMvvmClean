@@ -1,9 +1,9 @@
-import com.example.androidbase.presentation.Dependencies
 import com.example.androidbase.presentation.BuildModules
 import com.example.androidbase.presentation.ConfigData
 import com.example.androidbase.presentation.daggerHilt
 import com.example.androidbase.presentation.retrofit
 import com.example.androidbase.presentation.room
+import com.example.androidbase.presentation.Libs
 
 plugins {
     id("com.android.library")
@@ -43,12 +43,12 @@ android {
 
 dependencies {
     implementation(project(BuildModules.DOMAIN))
-    implementation(Dependencies.ANDROIDX_CORE_KTX)
-    implementation(Dependencies.ANDROIDX_APPCOMPAT)
-    implementation(Dependencies.ANDROID_MATERIAL)
-    testImplementation(Dependencies.JUNIT_JUNIT)
-    androidTestImplementation(Dependencies.TEST_JUNIT)
-    androidTestImplementation(Dependencies.TEST_EXPRESO)
+    implementation(Libs.Android.ANDROIDX_CORE_KTX)
+    implementation(Libs.Android.ANDROIDX_APPCOMPAT)
+    implementation(Libs.Google.ANDROID_MATERIAL)
+    testImplementation(Libs.Testing.JUNIT_JUNIT)
+    androidTestImplementation(Libs.Testing.TEST_JUNIT)
+    androidTestImplementation(Libs.Testing.TEST_EXPRESO)
     //Retrofit Dependecies
     retrofit()
     //Room

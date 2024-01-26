@@ -1,5 +1,5 @@
 import com.example.androidbase.presentation.ConfigData
-import com.example.androidbase.presentation.Dependencies
+import com.example.androidbase.presentation.Libs
 import com.example.androidbase.presentation.room
 
 plugins {
@@ -38,9 +38,9 @@ android {
 
 dependencies {
 
-    implementation(Dependencies.ANDROIDX_APPCOMPAT)
-    implementation(Dependencies.ANDROID_MATERIAL)
-    testImplementation(Dependencies.JUNIT_JUNIT)
+    implementation(Libs.Android.ANDROIDX_APPCOMPAT)
+    implementation(Libs.Google.ANDROID_MATERIAL)
+    testImplementation(Libs.Testing.JUNIT_JUNIT)
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     room()

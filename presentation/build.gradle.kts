@@ -1,6 +1,6 @@
 import com.example.androidbase.presentation.BuildModules
 import com.example.androidbase.presentation.ConfigData
-import com.example.androidbase.presentation.Dependencies
+import com.example.androidbase.presentation.Libs
 import com.example.androidbase.presentation.daggerHilt
 import com.example.androidbase.presentation.glide
 import com.example.androidbase.presentation.navigationComponent
@@ -54,13 +54,13 @@ android {
 dependencies {
     implementation(project(BuildModules.DATA))
     implementation(project(BuildModules.DOMAIN))
-    implementation(Dependencies.ANDROIDX_CORE_KTX)
-    implementation(Dependencies.ANDROIDX_APPCOMPAT)
-    implementation(Dependencies.ANDROID_MATERIAL)
-    implementation(Dependencies.ANDROIDX_CONSTRAINT_LAYOUT)
-    testImplementation(Dependencies.JUNIT_JUNIT)
-    androidTestImplementation(Dependencies.TEST_JUNIT)
-    androidTestImplementation(Dependencies.TEST_EXPRESO)
+    implementation(Libs.Android.ANDROIDX_CORE_KTX)
+    implementation(Libs.Android.ANDROIDX_APPCOMPAT)
+    implementation(Libs.Google.ANDROID_MATERIAL)
+    implementation(Libs.Android.ANDROIDX_CONSTRAINT_LAYOUT)
+    testImplementation(Libs.Testing.JUNIT_JUNIT)
+    androidTestImplementation(Libs.Testing.TEST_JUNIT)
+    androidTestImplementation(Libs.Testing.TEST_EXPRESO)
     //Navigation component
     navigationComponent()
     //Dagger - Hilt
@@ -68,14 +68,14 @@ dependencies {
     //Retrofit Dependecies
     retrofit()
     //lifecycle
-    implementation(Dependencies.VIEW_MODEL)
-    implementation(Dependencies.LIVE_DATA)
-    implementation(Dependencies.ANDROIDX_FRAGMENT)
+    implementation(Libs.Android.VIEW_MODEL)
+    implementation(Libs.Android.LIVE_DATA)
+    implementation(Libs.Android.ANDROIDX_FRAGMENT)
     //Room
     room()
     //Glide
     glide()
-    implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
+    implementation(Libs.Android.SWIPE_REFRESH_LAYOUT)
     //implementation("com.github.Spikeysanju:MotionToast:1.4")
     implementation("com.faltenreich:skeletonlayout:5.0.0")
 }
