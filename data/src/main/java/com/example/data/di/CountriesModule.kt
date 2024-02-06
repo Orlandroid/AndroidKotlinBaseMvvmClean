@@ -4,6 +4,8 @@ package com.example.data.di
 import com.example.data.countries.CountriesApi
 import com.example.data.countries.CountriesRepositoryImpl
 import com.example.domain.countries.CountriesRepository
+import com.example.domain.usecases.GetCountriesUseCase
+import com.example.domain.usecases.GetCountryByNameUseCase
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -44,6 +46,19 @@ object CountriesModule {
     fun provideCountriesRepository(
         countriesApi: CountriesApi,
     ): CountriesRepository = CountriesRepositoryImpl(countriesApi)
+
+
+    @Provides
+    @Singleton
+    fun provideGetCountriesUseCase(
+        countriesRepository: CountriesRepository
+    ) = GetCountriesUseCase(countriesRepository)
+
+    @Provides
+    @Singleton
+    fun provideGetCountryByNameUseCase(
+        countriesRepository: CountriesRepository
+    ) = GetCountryByNameUseCase(countriesRepository)
 
 
 }

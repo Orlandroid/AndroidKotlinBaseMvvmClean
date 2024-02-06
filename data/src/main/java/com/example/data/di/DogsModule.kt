@@ -4,6 +4,7 @@ package com.example.data.di
 import com.example.data.dog.DogsApi
 import com.example.data.dog.DogsRepositoryImpl
 import com.example.domain.dogs.DogsRepository
+import com.example.domain.usecases.GetRandomDogUseCase
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -43,6 +44,12 @@ object DogsModule {
     fun provideDogsRepository(
         dogsApi: DogsApi,
     ): DogsRepository = DogsRepositoryImpl(dogsApi)
+
+    @Provides
+    @Singleton
+    fun provideGetRandomDogUseCase(
+        dogsRepository: DogsRepository
+    ) = GetRandomDogUseCase(dogsRepository)
 
 
 }

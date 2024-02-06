@@ -14,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DogsFragment : BaseFragment<FragmentDogsBinding>(R.layout.fragment_dogs) {
 
-    private val viewModel: DoogsViewModel by viewModels()
+    private val viewModel: DogsViewModel by viewModels()
     override fun configureToolbar() = MainActivity.ToolbarConfiguration(
         showToolbar = true,
         toolbarTitle = getString(R.string.dogs_api)

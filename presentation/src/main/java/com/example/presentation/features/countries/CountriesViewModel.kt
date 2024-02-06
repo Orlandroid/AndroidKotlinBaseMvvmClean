@@ -5,6 +5,8 @@ import com.example.data.di.CoroutineDispatchers
 import com.example.domain.countries.CountriesRepository
 import com.example.domain.countries.CountryResponse
 import com.example.domain.state.Result
+import com.example.domain.usecases.GetCountriesUseCase
+import com.example.domain.usecases.GetCountryByNameUseCase
 import com.example.presentation.base.BaseViewModel
 import com.example.presentation.helpers.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +20,8 @@ import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
 class CountriesViewModel @Inject constructor(
-    private val repository: CountriesRepository,
+    private val getCountriesUseCase: GetCountriesUseCase,
+    private val getCountryByNameUseCase: GetCountryByNameUseCase,
     coroutineDispatchers: CoroutineDispatchers,
     networkHelper: NetworkHelper
 ) : BaseViewModel(coroutineDispatchers, networkHelper) {
@@ -33,7 +36,7 @@ class CountriesViewModel @Inject constructor(
 
     fun getCountries() = viewModelScope.launch {
         safeApiCall(_countries, coroutineDispatchers) {
-            val response = repository.getAllCountries()
+            val response = getCountriesUseCase()
             withContext(Dispatchers.Main) {
                 _countries.emit(Result.Success(response))
             }
@@ -43,7 +46,7 @@ class CountriesViewModel @Inject constructor(
     fun getCountryByName(name: String) = viewModelScope.launch {
         safeApiCall(_country, coroutineDispatchers) {
             delay(1.seconds)
-            val response = repository.getCountryByName(name)
+            val response = getCountryByNameUseCase(name)
             withContext(Dispatchers.Main) {
                 _country.emit(Result.Success(response))
             }

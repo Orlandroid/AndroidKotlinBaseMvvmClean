@@ -3,8 +3,8 @@ package com.example.presentation.features.bored
 import androidx.lifecycle.viewModelScope
 import com.example.data.di.CoroutineDispatchers
 import com.example.domain.bored.ActivityResponse
-import com.example.domain.bored.BoredRepository
 import com.example.domain.state.Result
+import com.example.domain.usecases.ActivityUseCase
 import com.example.presentation.base.BaseViewModel
 import com.example.presentation.helpers.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BoredViewModel @Inject constructor(
-    private val repository: BoredRepository,
+    private val activityUseCase: ActivityUseCase,
     coroutineDispatchers: CoroutineDispatchers,
     networkHelper: NetworkHelper
 ) : BaseViewModel(coroutineDispatchers, networkHelper) {
@@ -36,14 +36,14 @@ class BoredViewModel @Inject constructor(
         getActivity()
     }
 
-    fun getActivity() {
-        viewModelScope.launch {
-            safeApiCall(_getActivityResponse, coroutineDispatchers) {
-                val response = repository.getActivity()
-                withContext(Dispatchers.Main) {
-                    _getActivityResponse.value = Result.Success(response)
-                }
+    fun getActivity() = viewModelScope.launch {
+        safeApiCall(_getActivityResponse, coroutineDispatchers) {
+            val response = activityUseCase()
+            withContext(Dispatchers.Main) {
+                _getActivityResponse.value = Result.Success(response)
             }
         }
     }
+
+
 }

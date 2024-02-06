@@ -4,6 +4,7 @@ package com.example.data.di
 import com.example.data.bored.BoredApi
 import com.example.data.bored.BoredRepositoryImpl
 import com.example.domain.bored.BoredRepository
+import com.example.domain.usecases.ActivityUseCase
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -44,6 +45,12 @@ object BoredModule {
     fun provideBoredRepository(
         boredApi: BoredApi,
     ): BoredRepository = BoredRepositoryImpl(boredApi)
+
+    @Provides
+    @Singleton
+    fun provideActivityUseCase(
+        boredRepository: BoredRepository,
+    ) = ActivityUseCase(boredRepository)
 
 
 }
