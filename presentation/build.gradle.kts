@@ -60,7 +60,7 @@ dependencies {
     implementation(Libs.Android.ANDROIDX_CONSTRAINT_LAYOUT)
     testImplementation(Libs.Testing.JUNIT_JUNIT)
     androidTestImplementation(Libs.Testing.TEST_JUNIT)
-    androidTestImplementation(Libs.Testing.TEST_EXPRESO)
+    androidTestImplementation(Libs.Testing.TEST_ESPRESSO)
     //Navigation component
     navigationComponent()
     //Dagger - Hilt

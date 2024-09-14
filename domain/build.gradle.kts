@@ -41,8 +41,8 @@ dependencies {
     implementation(Libs.Android.ANDROIDX_APPCOMPAT)
     implementation(Libs.Google.ANDROID_MATERIAL)
     testImplementation(Libs.Testing.JUNIT_JUNIT)
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     room()
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 }

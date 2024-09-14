@@ -48,14 +48,14 @@ dependencies {
     implementation(Libs.Google.ANDROID_MATERIAL)
     testImplementation(Libs.Testing.JUNIT_JUNIT)
     androidTestImplementation(Libs.Testing.TEST_JUNIT)
-    androidTestImplementation(Libs.Testing.TEST_EXPRESO)
+    androidTestImplementation(Libs.Testing.TEST_ESPRESSO)
     //Retrofit Dependecies
     retrofit()
     //Room
     room()
     //Dagger - Hilt
     daggerHilt()
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
 
 }
